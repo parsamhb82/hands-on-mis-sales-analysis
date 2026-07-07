@@ -193,6 +193,53 @@ has both high sales volume and the highest total revenue among the top categorie
 This suggests that keeping this category available could have a significant impact
 on sales performance.
 
+\subsection{Promotional Campaign Analysis}
+
+The second management question asks which stores and sales regions would benefit
+from a promotional campaign and additional marketing. In this dataset,
+\texttt{seller\_id} was used as the store identifier, and \texttt{seller\_state}
+was used as the sales region.
+
+The analysis compared sales performance by region using units sold, number of
+sellers, total revenue, and average price. Regions with low total revenue were
+identified as possible candidates for promotional campaigns or additional
+marketing support.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrrr}
+\toprule
+Region & Units Sold & Number of Sellers & Total Revenue \\
+\midrule
+AM & 3 & 1 & 1,177.00 \\
+PA & 8 & 1 & 1,238.00 \\
+SE & 10 & 2 & 1,606.20 \\
+PI & 11 & 1 & 2,383.00 \\
+RO & 14 & 2 & 4,762.20 \\
+MS & 50 & 5 & 8,551.69 \\
+RN & 56 & 5 & 9,992.60 \\
+PB & 37 & 6 & 16,395.50 \\
+MT & 144 & 4 & 17,007.82 \\
+CE & 90 & 12 & 19,517.84 \\
+\bottomrule
+\end{tabular}
+\caption{Lowest-Performing Sales Regions by Revenue}
+\end{table}
+
+The regions \texttt{AM}, \texttt{PA}, \texttt{SE}, \texttt{PI}, and
+\texttt{RO} had the lowest total revenue. These regions may benefit from
+additional marketing campaigns because their sales activity is much lower than
+the strongest regions.
+
+However, the results should be interpreted carefully. Some of these regions have
+only one or two sellers, which suggests that low revenue may be caused by weak
+market presence rather than only weak customer demand. Therefore, management
+should consider both promotional campaigns and seller expansion strategies in
+these regions.
+
+For comparison, the strongest region was \texttt{SP}, with 78,604 units sold and
+8,509,511.46 in total revenue. This shows a large performance gap between
+\texttt{SP} and the lower-performing regions.
 
 \section{Job Search Project 1-10}
 
