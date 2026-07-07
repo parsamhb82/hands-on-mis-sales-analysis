@@ -142,23 +142,123 @@ and increase overall operational efficiency.
 
 \subsection{Dataset Description}
 
-The project uses a transactional marketplace database containing:
+The project uses a transactional marketplace database stored in SQLite format.
+The database contains raw sales transaction data that can be used to analyze
+product demand, regional sales performance, seller performance, and monthly sales
+trends.
+
+The database contains five main tables:
 
 \begin{itemize}
-    \item Orders
-    \item Products
-    \item Sellers
-    \item Order items
-    \item Customer reviews
+    \item \texttt{orders}: contains order identification numbers, order dates,
+    and customer contact information.
+    
+    \item \texttt{order\_items}: contains the products sold in each order,
+    seller identifiers, product identifiers, and item prices.
+    
+    \item \texttt{products}: contains product identifiers, product categories,
+    and product weight information.
+    
+    \item \texttt{sellers}: contains seller identifiers and seller state
+    information.
+    
+    \item \texttt{order\_reviews}: contains customer review scores and review
+    comments.
 \end{itemize}
+
+The main analysis used the \texttt{orders}, \texttt{order\_items},
+\texttt{products}, and \texttt{sellers} tables. The \texttt{order\_reviews}
+table was not required for the three main sales trend questions, but it could be
+used in future analysis to study customer satisfaction.
+
+The dataset included 96,478 orders, 110,197 order item records, 32,216 products,
+2,970 sellers, and 39,462 reviews. The order dates ranged from September 15,
+2016 to August 29, 2018.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lr}
+\toprule
+Table & Number of Records \\
+\midrule
+\texttt{orders} & 96,478 \\
+\texttt{order\_items} & 110,197 \\
+\texttt{products} & 32,216 \\
+\texttt{sellers} & 2,970 \\
+\texttt{order\_reviews} & 39,462 \\
+\bottomrule
+\end{tabular}
+\caption{Database Tables and Record Counts}
+\end{table}
 
 
 \subsection{Data Preparation}
 
-% Explain SQLite to CSV conversion here
+The original dataset was provided as a SQLite database file. Because the project
+requires database querying and reporting, SQLite was used to inspect the database
+structure and run SQL queries. The database was also exported to CSV files so the
+tables could be opened in spreadsheet or database software if needed.
+
+A Python script was created to export each SQLite table into a separate CSV file.
+The exported files were:
+
+\begin{itemize}
+    \item \texttt{orders.csv}
+    \item \texttt{order\_items.csv}
+    \item \texttt{products.csv}
+    \item \texttt{sellers.csv}
+    \item \texttt{order\_reviews.csv}
+\end{itemize}
+
+The main sales analysis was performed by joining the order, product, and seller
+tables into a single SQL view named \texttt{sales\_analysis\_base}. This view
+created a structure similar to the textbook sales database.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{ll}
+\toprule
+Textbook Field & Dataset Field Used \\
+\midrule
+Store identification number & \texttt{seller\_id} \\
+Sales region & \texttt{seller\_state} \\
+Item number & \texttt{product\_id} \\
+Item description & \texttt{product\_category\_name} \\
+Unit price & \texttt{price} \\
+Units sold & Count of records in \texttt{order\_items} \\
+Sales period & Month extracted from \texttt{timestamp} \\
+\bottomrule
+\end{tabular}
+\caption{Mapping Textbook Sales Fields to Dataset Fields}
+\end{table}
+
+A missing data check was also performed on the joined sales view. The analysis
+found no missing product categories, seller states, or prices in the final
+analysis table.
 
 
 \subsection{Sales Analysis Queries}
+
+SQL queries were used to answer the three management questions in the assignment.
+The queries joined the transactional tables and summarized the data by product
+category, seller region, seller, and month.
+
+The first query group identified which products should be restocked by ranking
+product categories and individual products by units sold and total revenue. Since
+the dataset did not include inventory quantity, high sales volume was used as a
+proxy for high customer demand.
+
+The second query group identified stores and regions that may benefit from
+promotional campaigns. In this dataset, \texttt{seller\_id} represented the
+store or seller, and \texttt{seller\_state} represented the sales region. Regions
+with low revenue and low sales volume were treated as candidates for additional
+marketing support.
+
+The third query group analyzed monthly sales trends. Since the dataset did not
+include a direct discount field, monthly revenue and units sold were used to
+identify stronger and weaker sales periods. Stronger months were considered
+better candidates for full-price selling, while weaker months were considered
+better candidates for discounts or promotional campaigns.
 
 \subsection{Restocking Analysis}
 
