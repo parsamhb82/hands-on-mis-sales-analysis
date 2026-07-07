@@ -9,6 +9,17 @@
 \usepackage{listings}
 \usepackage{xcolor}
 
+% Code listing style
+\lstdefinestyle{codeStyle}{
+    basicstyle=\ttfamily\small,
+    breaklines=true,
+    frame=single,
+    numbers=left,
+    numberstyle=\tiny,
+    tabsize=4,
+    showstringspaces=false
+}
+
 \geometry{margin=1in}
 
 \title{
@@ -91,6 +102,7 @@ data with other business functions such as sales, inventory, and production.
 This solution would reduce manual work, improve reporting accuracy, provide faster
 access to information, and support better management decisions.
 
+
 \section{Management Decision Problem 1-8: Dollar General}
 
 \subsection{Problem Summary}
@@ -138,6 +150,8 @@ Dollar General should implement an automated inventory management system using
 barcode scanning and a centralized database. This system would provide accurate
 inventory information, reduce merchandise losses, improve replenishment decisions,
 and increase overall operational efficiency.
+
+
 \section{Database Analysis Project 1-9}
 
 \subsection{Dataset Description}
@@ -260,6 +274,7 @@ identify stronger and weaker sales periods. Stronger months were considered
 better candidates for full-price selling, while weaker months were considered
 better candidates for discounts or promotional campaigns.
 
+
 \subsection{Restocking Analysis}
 
 The first management question asks which products should be restocked. The dataset
@@ -292,6 +307,7 @@ categories. The category \texttt{beleza\_saude} is especially important because 
 has both high sales volume and the highest total revenue among the top categories.
 This suggests that keeping this category available could have a significant impact
 on sales performance.
+
 
 \subsection{Promotional Campaign Analysis}
 
@@ -340,6 +356,7 @@ these regions.
 For comparison, the strongest region was \texttt{SP}, with 78,604 units sold and
 8,509,511.46 in total revenue. This shows a large performance gap between
 \texttt{SP} and the lower-performing regions.
+
 
 \subsection{Pricing and Discount Timing Analysis}
 
@@ -398,6 +415,7 @@ all calendar months equally. The data begins in September 2016 and ends in Augus
 2018, so some periods may be incomplete. Even with this limitation, the monthly
 trend provides useful guidance for pricing and promotional planning.
 
+
 \section{Job Search Project 1-10}
 
 \subsection{Research Method}
@@ -415,6 +433,7 @@ The research focused on three representative roles:
     \item Sales operations analyst roles
     \item Human resources information systems analyst roles
 \end{itemize}
+
 
 \subsection{Job 1: Accounting or Finance Analyst}
 
@@ -443,6 +462,7 @@ decisions depend on accurate, timely, and well-organized data. Instead of only
 recording financial transactions, accounting and finance employees are expected
 to use systems to analyze data and support decision making.
 
+
 \subsection{Job 2: Sales Operations Analyst}
 
 A second job category requiring information systems knowledge is sales operations.
@@ -464,6 +484,7 @@ need accurate data about customers, products, territories, and revenue. A sales
 operations analyst uses information systems to turn raw sales data into reports
 that help managers improve productivity, identify weak regions, and make better
 marketing or sales decisions.
+
 
 \subsection{Job 3: HRIS or Workday Analyst}
 
@@ -487,6 +508,7 @@ This role is important because human resources departments manage large amounts
 of sensitive employee data. Information systems help HR employees maintain
 accurate records, support payroll and benefits, track workforce changes, and
 provide reports to managers.
+
 
 \subsection{Preparation for These Jobs}
 
@@ -516,6 +538,7 @@ This MIS project helps prepare for these jobs because it uses a real transaction
 database, converts data into usable formats, applies SQL queries, and summarizes
 results for management decision making.
 
+
 \subsection{Summary of Job Search Findings}
 
 The job search shows that information systems knowledge is required in many
@@ -527,6 +550,7 @@ and Workday systems to manage employee information and reporting.
 Overall, the most useful information systems skills for business students are
 spreadsheet analysis, database querying, business intelligence reporting,
 enterprise system knowledge, and data-driven decision making.
+
 
 \subsection{Sources Consulted}
 
@@ -553,9 +577,118 @@ enterprise system knowledge, and data-driven decision making.
     \url{https://www.bls.gov/ooh/business-and-financial/market-research-analysts.htm}
 \end{itemize}
 
+
 \section{Conclusion}
 
-% Final conclusion
+This project shows how information systems can improve business performance,
+management decision making, and operational control. The Snyder's of Hanover case
+demonstrated the problems created by manual spreadsheet-based reporting. Slow
+data collection, repeated manual entry, and inconsistent spreadsheet updates can
+delay financial reporting and reduce the quality of management decisions. A
+centralized financial information system or ERP system would help the company
+produce faster, more accurate, and more useful reports.
+
+The Dollar General case showed that inventory management problems should not be
+solved by purchasing technology without first understanding the business need.
+Before investing in an information system, management must define the problem,
+identify required system features, evaluate costs and benefits, plan employee
+training, and consider security requirements. An automated inventory management
+system using barcode scanning and a centralized database could reduce inventory
+losses and improve store-level decision making.
+
+The database analysis project demonstrated how raw transactional data can be
+converted into useful management information. SQL queries were used to analyze
+product demand, regional sales performance, seller performance, and monthly sales
+trends. The analysis found that product categories such as
+\texttt{cama\_mesa\_banho}, \texttt{beleza\_saude}, \texttt{esporte\_lazer},
+\texttt{moveis\_decoracao}, and \texttt{informatica\_acessorios} should be
+prioritized for restocking because they had the highest sales volume. The
+analysis also showed that lower-performing regions such as \texttt{AM},
+\texttt{PA}, \texttt{SE}, \texttt{PI}, and \texttt{RO} may benefit from
+additional marketing or seller expansion. Finally, the monthly sales analysis
+showed that stronger sales months such as March, April, May, July, and August are
+better candidates for full-price selling, while weaker months such as September,
+October, December, November, and January may require discounts or promotional
+campaigns.
+
+The job search project showed that information systems knowledge is important in
+many business careers, not only in technical IT positions. Accounting, finance,
+sales, marketing, and human resources jobs increasingly require skills in
+spreadsheets, databases, ERP systems, CRM systems, HRIS platforms, SQL, and
+business intelligence tools.
+
+Overall, this project demonstrates that information systems help organizations
+collect data, organize data, analyze trends, and make better decisions. Managers
+who understand information systems can improve efficiency, reduce errors, control
+costs, identify opportunities, and respond more quickly to business problems.
+
+
+\newpage
+\appendix
+
+\section{Appendix A: SQLite to CSV Export Script}
+
+The following Python script was used to export the SQLite database tables into
+CSV files. This made the data easier to inspect and made it possible to use the
+data in spreadsheet or database software if needed.
+
+\lstinputlisting[
+    style=codeStyle,
+    language=Python,
+    caption={SQLite to CSV Export Script}
+]{../scripts/sqlite_to_csv.py}
+
+
+\newpage
+\section{Appendix B: Database Profile and Base View SQL}
+
+The following SQL file was used to inspect the database, count records, check the
+date range, and create the main joined sales analysis view.
+
+\lstinputlisting[
+    style=codeStyle,
+    language=SQL,
+    caption={Database Profile and Sales Analysis Base View}
+]{../sql/sales_analysis_queries.sql}
+
+
+\newpage
+\section{Appendix C: Restocking Analysis SQL}
+
+The following SQL file was used to identify high-demand product categories and
+products that should be prioritized for restocking.
+
+\lstinputlisting[
+    style=codeStyle,
+    language=SQL,
+    caption={Restocking Analysis SQL Queries}
+]{../sql/restock_analysis.sql}
+
+
+\newpage
+\section{Appendix D: Promotional Campaign Analysis SQL}
+
+The following SQL file was used to identify low-performing regions and sellers
+that may benefit from promotional campaigns or additional marketing support.
+
+\lstinputlisting[
+    style=codeStyle,
+    language=SQL,
+    caption={Promotional Campaign Analysis SQL Queries}
+]{../sql/promotion_analysis.sql}
+
+
+\newpage
+\section{Appendix E: Pricing and Discount Timing SQL}
+
+The following SQL file was used to analyze monthly sales trends and identify
+stronger and weaker sales periods for pricing and promotion decisions.
+
+\lstinputlisting[
+    style=codeStyle,
+    language=SQL,
+    caption={Pricing and Discount Timing SQL Queries}
+]{../sql/pricing_timing_analysis.sql}
 
 
 \end{document}
