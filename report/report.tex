@@ -160,7 +160,38 @@ The project uses a transactional marketplace database containing:
 
 \subsection{Sales Analysis Queries}
 
-% Results will be added later
+\subsection{Restocking Analysis}
+
+The first management question asks which products should be restocked. The dataset
+does not include current inventory levels or stock quantities. Therefore, units sold
+were used as a proxy for customer demand. Product categories with the highest sales
+volume were treated as the strongest candidates for restocking.
+
+The analysis showed that the highest-demand product categories were
+\texttt{cama\_mesa\_banho}, \texttt{beleza\_saude}, \texttt{esporte\_lazer},
+\texttt{moveis\_decoracao}, and \texttt{informatica\_acessorios}.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrr}
+\toprule
+Product Category & Units Sold & Total Revenue \\
+\midrule
+\texttt{cama\_mesa\_banho} & 10,953 & 1,023,434.76 \\
+\texttt{beleza\_saude} & 9,465 & 1,233,131.72 \\
+\texttt{esporte\_lazer} & 8,431 & 954,852.55 \\
+\texttt{moveis\_decoracao} & 8,160 & 711,927.69 \\
+\texttt{informatica\_acessorios} & 7,644 & 888,724.61 \\
+\bottomrule
+\end{tabular}
+\caption{Top Product Categories by Units Sold}
+\end{table}
+
+Based on this analysis, managers should prioritize restocking these high-demand
+categories. The category \texttt{beleza\_saude} is especially important because it
+has both high sales volume and the highest total revenue among the top categories.
+This suggests that keeping this category available could have a significant impact
+on sales performance.
 
 
 \section{Job Search Project 1-10}
