@@ -241,6 +241,63 @@ For comparison, the strongest region was \texttt{SP}, with 78,604 units sold and
 8,509,511.46 in total revenue. This shows a large performance gap between
 \texttt{SP} and the lower-performing regions.
 
+\subsection{Pricing and Discount Timing Analysis}
+
+The third management question asks when products should be offered at full price
+and when discounts should be used. The dataset does not contain a direct discount
+field, so monthly sales volume and total revenue were used to identify stronger
+and weaker sales periods.
+
+High-demand months are better candidates for full-price selling because customers
+are already purchasing more products. Low-demand months are better candidates for
+discounts, promotions, or additional marketing because sales activity is weaker.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrr}
+\toprule
+Month & Units Sold & Total Revenue \\
+\midrule
+May & 11,814 & 1,466,882.94 \\
+August & 11,939 & 1,393,276.34 \\
+July & 11,379 & 1,349,557.98 \\
+April & 10,396 & 1,314,203.77 \\
+March & 10,914 & 1,312,555.10 \\
+\bottomrule
+\end{tabular}
+\caption{Strongest Months by Total Revenue}
+\end{table}
+
+Based on this result, managers should consider selling products closer to full
+price during March, April, May, July, and August. These months had the strongest
+sales performance and may not require aggressive discounting.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lrr}
+\toprule
+Month & Units Sold & Total Revenue \\
+\midrule
+September & 4,740 & 607,534.64 \\
+October & 5,527 & 688,572.76 \\
+December & 6,188 & 726,044.09 \\
+November & 8,475 & 987,765.37 \\
+January & 8,950 & 1,036,443.36 \\
+\bottomrule
+\end{tabular}
+\caption{Weakest Months by Total Revenue}
+\end{table}
+
+Discounts and promotional campaigns should be considered during September,
+October, December, November, and January because these months had weaker sales
+performance. Promotions during these periods may help increase demand and improve
+revenue.
+
+The results should be interpreted carefully because the dataset does not cover
+all calendar months equally. The data begins in September 2016 and ends in August
+2018, so some periods may be incomplete. Even with this limitation, the monthly
+trend provides useful guidance for pricing and promotional planning.
+
 \section{Job Search Project 1-10}
 
 % Added later
